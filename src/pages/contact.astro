@@ -1,0 +1,226 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Contact - ${SITE_TITLE}`} description="Get in touch with DVW Systems" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="contact-section">
+				<div class="contact-content">
+					<h1>Contact Us</h1>
+					<p>
+						Ready to start your digital transformation journey? Get in touch with us to discuss 
+						how we can help optimize your business processes and workflows.
+					</p>
+					
+					<div class="contact-grid">
+						<div class="contact-info">
+							<h3>Get In Touch</h3>
+							<div class="contact-item">
+								<h4>Email</h4>
+								<p>info@dvwsystems.com</p>
+							</div>
+							<div class="contact-item">
+								<h4>Location</h4>
+								<p>Bangkok, Thailand</p>
+							</div>
+							<div class="contact-item">
+								<h4>Available</h4>
+								<p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+							</div>
+						</div>
+						
+						<div class="contact-form">
+							<h3>Send us a Message</h3>
+							<form action="#" method="POST">
+								<div class="form-group">
+									<label for="name">Name</label>
+									<input type="text" id="name" name="name" required>
+								</div>
+								
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="email" id="email" name="email" required>
+								</div>
+								
+								<div class="form-group">
+									<label for="subject">Subject</label>
+									<input type="text" id="subject" name="subject" required>
+								</div>
+								
+								<div class="form-group">
+									<label for="message">Message</label>
+									<textarea id="message" name="message" rows="5" required></textarea>
+								</div>
+								
+								<button type="submit" class="submit-btn">Send Message</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	body {
+		background: transparent !important;
+	}
+
+	main {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		max-width: 100%;
+		background: transparent !important;
+	}
+
+	.contact-section {
+		padding: 4rem 2rem;
+		background: transparent !important;
+		color: inherit;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.contact-content {
+		max-width: 1000px;
+		margin: 0 auto;
+		background: transparent !important;
+	}
+
+	.contact-section h1 {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+		color: #2c3e50;
+		text-align: center;
+		background: transparent !important;
+	}
+
+	.contact-section > .contact-content > p {
+		font-size: 1.2rem;
+		line-height: 1.6;
+		color: #34495e;
+		margin-bottom: 3rem;
+		text-align: center;
+		background: transparent !important;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		margin-top: 2rem;
+	}
+
+	.contact-info, .contact-form {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 2rem;
+		border-radius: 8px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.contact-info h3, .contact-form h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1.5rem;
+		color: #2c3e50;
+		font-weight: 600;
+	}
+
+	.contact-item {
+		margin-bottom: 1.5rem;
+	}
+
+	.contact-item h4 {
+		font-size: 1rem;
+		margin-bottom: 0.5rem;
+		color: #34495e;
+		font-weight: 600;
+	}
+
+	.contact-item p {
+		font-size: 1rem;
+		color: #34495e;
+		margin: 0;
+	}
+
+	.form-group {
+		margin-bottom: 1.5rem;
+	}
+
+	.form-group label {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-weight: 600;
+		color: #34495e;
+	}
+
+	.form-group input,
+	.form-group textarea {
+		width: 100%;
+		padding: 0.75rem;
+		border: 1px solid #ddd;
+		border-radius: 4px;
+		font-size: 1rem;
+		background: white;
+		color: #333;
+	}
+
+	.form-group input:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: #3498db;
+		box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+	}
+
+	.submit-btn {
+		background: #3498db;
+		color: white;
+		padding: 0.75rem 2rem;
+		border: none;
+		border-radius: 4px;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+	}
+
+	.submit-btn:hover {
+		background: #2980b9;
+	}
+
+	@media (max-width: 768px) {
+		.contact-section {
+			padding: 2rem 1rem;
+		}
+
+		.contact-section h1 {
+			font-size: 2rem;
+		}
+
+		.contact-section > .contact-content > p {
+			font-size: 1rem;
+		}
+
+		.contact-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.contact-info, .contact-form {
+			padding: 1.5rem;
+		}
+	}
+</style> 

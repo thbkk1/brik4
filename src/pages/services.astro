@@ -1,0 +1,166 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Services - ${SITE_TITLE}`} description="Our services at DVW Systems" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="services-section">
+				<div class="services-content">
+					<h1>Our Services</h1>
+					<p>
+						We specialize in creating efficient workflows and providing comprehensive project management services 
+						to help businesses navigate their digital transformation journey.
+					</p>
+					
+					<div class="services-grid">
+						<div class="service-card">
+							<h3>Workflow Automation</h3>
+							<p>
+								We design and implement automated workflows that streamline your business processes, 
+								reduce manual tasks, and improve overall efficiency.
+							</p>
+						</div>
+						
+						<div class="service-card">
+							<h3>Project Management</h3>
+							<p>
+								Comprehensive project management services to ensure your digital transformation 
+								projects are delivered on time and within budget.
+							</p>
+						</div>
+						
+						<div class="service-card">
+							<h3>Digital Transformation Consulting</h3>
+							<p>
+								Expert guidance to help your organization successfully transition to digital-first 
+								operations and modernize your business processes.
+							</p>
+						</div>
+						
+						<div class="service-card">
+							<h3>Process Optimization</h3>
+							<p>
+								Analysis and improvement of existing business processes to maximize efficiency 
+								and reduce operational costs.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	body {
+		background: transparent !important;
+	}
+
+	main {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		max-width: 100%;
+		background: transparent !important;
+	}
+
+	.services-section {
+		padding: 4rem 2rem;
+		background: transparent !important;
+		color: inherit;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.services-content {
+		max-width: 1000px;
+		margin: 0 auto;
+		background: transparent !important;
+	}
+
+	.services-section h1 {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+		color: #2c3e50;
+		text-align: center;
+		background: transparent !important;
+	}
+
+	.services-section > .services-content > p {
+		font-size: 1.2rem;
+		line-height: 1.6;
+		color: #34495e;
+		margin-bottom: 3rem;
+		text-align: center;
+		background: transparent !important;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		margin-top: 2rem;
+	}
+
+	.service-card {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 2rem;
+		border-radius: 8px;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+
+	.service-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+	}
+
+	.service-card h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: #2c3e50;
+		font-weight: 600;
+	}
+
+	.service-card p {
+		font-size: 1rem;
+		line-height: 1.6;
+		color: #34495e;
+		margin: 0;
+	}
+
+	@media (max-width: 768px) {
+		.services-section {
+			padding: 2rem 1rem;
+		}
+
+		.services-section h1 {
+			font-size: 2rem;
+		}
+
+		.services-section > .services-content > p {
+			font-size: 1rem;
+		}
+
+		.services-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.service-card {
+			padding: 1.5rem;
+		}
+	}
+</style> 
