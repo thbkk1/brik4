@@ -6,6 +6,9 @@ import { SITE_TITLE } from '../consts';
 <header>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<button class="hamburger" aria-label="Toggle navigation" onclick="toggleNav()">
+			<span></span><span></span><span></span>
+		</button>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<HeaderLink href="/services">Services</HeaderLink>
@@ -34,6 +37,17 @@ import { SITE_TITLE } from '../consts';
 		</div>
 	</nav>
 </header>
+<script is:inline>
+let navOpen = false;
+function toggleNav() {
+	navOpen = !navOpen;
+	document.querySelector('.internal-links').classList.toggle('open', navOpen);
+	document.querySelector('.hamburger').classList.toggle('open', navOpen);
+}
+if (typeof window !== 'undefined') {
+	window.toggleNav = toggleNav;
+}
+</script>
 <style>
 	header {
 		margin: 0;
@@ -54,6 +68,7 @@ import { SITE_TITLE } from '../consts';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		position: relative;
 	}
 	nav a {
 		padding: 1em 0.5em;
@@ -69,9 +84,75 @@ import { SITE_TITLE } from '../consts';
 	.social-links a {
 		display: flex;
 	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
+	.hamburger {
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 40px;
+		height: 40px;
+		background: none;
+		border: none;
+		cursor: pointer;
+		z-index: 1001;
+	}
+	.hamburger span {
+		display: block;
+		width: 28px;
+		height: 4px;
+		margin: 4px 0;
+		background: #2c3e50;
+		border-radius: 2px;
+		transition: 0.3s;
+	}
+	.hamburger.open span:nth-child(1) {
+		transform: translateY(8px) rotate(45deg);
+	}
+	.hamburger.open span:nth-child(2) {
+		opacity: 0;
+	}
+	.hamburger.open span:nth-child(3) {
+		transform: translateY(-8px) rotate(-45deg);
+	}
+	.internal-links {
+		display: flex;
+		gap: 1em;
+		transition: max-height 0.3s, opacity 0.3s;
+	}
+	@media (max-width: 900px) {
+		nav {
+			flex-wrap: wrap;
 		}
+		.internal-links {
+			gap: 0.5em;
+		}
+	}
+	@media (max-width: 720px) {
+		.hamburger {
+			display: flex;
+		}
+		.internal-links {
+			position: absolute;
+			top: 60px;
+			left: 0;
+			right: 0;
+			background: white;
+			flex-direction: column;
+			align-items: center;
+			max-height: 0;
+			overflow: hidden;
+			opacity: 0;
+			pointer-events: none;
+			z-index: 1000;
+		}
+		.internal-links.open {
+			max-height: 400px;
+			opacity: 1;
+			pointer-events: auto;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+		}
+		.internal-links a {
+			padding: 1em 0;
+			width: 100vw;
 	}
 </style>
