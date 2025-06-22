@@ -1,0 +1,228 @@
+---
+// Sample technology data - you can replace these with your actual technologies
+const technologies = [
+  {
+    name: "Python",
+    image: "/technologies/python.svg",
+    alt: "Python Programming Language"
+  },
+  {
+    name: "JavaScript",
+    image: "/technologies/javascript.svg",
+    alt: "JavaScript Programming Language"
+  },
+  {
+    name: "React",
+    image: "/technologies/react.svg",
+    alt: "React Framework"
+  },
+  {
+    name: "Node.js",
+    image: "/technologies/nodejs.svg",
+    alt: "Node.js Runtime"
+  },
+  {
+    name: "Docker",
+    image: "/technologies/docker.svg",
+    alt: "Docker Containerization"
+  },
+  {
+    name: "Kubernetes",
+    image: "/technologies/kubernetes.svg",
+    alt: "Kubernetes Orchestration"
+  },
+  {
+    name: "AWS",
+    image: "/technologies/aws.svg",
+    alt: "Amazon Web Services"
+  },
+  {
+    name: "Azure",
+    image: "/technologies/azure.svg",
+    alt: "Microsoft Azure"
+  },
+  {
+    name: "Terraform",
+    image: "/technologies/terraform.svg",
+    alt: "Terraform Infrastructure"
+  },
+  {
+    name: "Jenkins",
+    image: "/technologies/jenkins.svg",
+    alt: "Jenkins CI/CD"
+  }
+];
+
+// Duplicate the array to create seamless infinite scroll effect
+const duplicatedTechnologies = [...technologies, ...technologies];
+---
+
+<div class="technology-carousel-container">
+  <div class="technology-content">
+    <h2>Cutting-Edge Technologies We Master</h2>
+    <div class="technology-carousel">
+      <div class="technology-track">
+        {duplicatedTechnologies.map((tech) => (
+          <div class="technology-item">
+            <img 
+              src={tech.image} 
+              alt={tech.alt}
+              onerror="this.style.display='none'"
+            />
+            <span class="technology-name">{tech.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .technology-carousel-container {
+    padding: 3rem 0;
+    background: transparent !important;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .technology-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    background: transparent !important;
+  }
+
+  .technology-carousel-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 600;
+    background: transparent !important;
+  }
+
+  .technology-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: transparent !important;
+  }
+
+  .technology-track {
+    display: flex;
+    animation: scroll-tech 35s linear infinite;
+    width: calc(200px * 20); /* Adjust based on number of items */
+    background: transparent !important;
+  }
+
+  .technology-item {
+    flex-shrink: 0;
+    width: 200px;
+    height: 150px;
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    border-radius: 12px;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    padding: 1rem;
+  }
+
+  .technology-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .technology-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+  }
+
+  .technology-name {
+    font-size: 0.8rem;
+    text-align: center;
+    color: #34495e;
+    font-weight: 500;
+    line-height: 1.2;
+    background: transparent !important;
+  }
+
+  @keyframes scroll-tech {
+    0% {
+      transform: translateX(calc(-200px * 10)); /* Start from the end */
+    }
+    100% {
+      transform: translateX(0); /* Move to the beginning */
+    }
+  }
+
+  /* Pause animation on hover */
+  .technology-carousel:hover .technology-track {
+    animation-play-state: paused;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .technology-content {
+      padding: 0 1rem;
+    }
+
+    .technology-carousel-container h2 {
+      font-size: 2rem;
+    }
+
+    .technology-item {
+      width: 150px;
+      height: 120px;
+      margin: 0 0.5rem;
+    }
+
+    .technology-item img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .technology-track {
+      width: calc(150px * 20);
+    }
+
+    @keyframes scroll-tech {
+      0% {
+        transform: translateX(calc(-150px * 10));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .technology-item {
+      width: 120px;
+      height: 100px;
+      margin: 0 0.25rem;
+    }
+
+    .technology-item img {
+      width: 70px;
+      height: 70px;
+    }
+
+    .technology-track {
+      width: calc(120px * 20);
+    }
+
+    @keyframes scroll-tech {
+      0% {
+        transform: translateX(calc(-120px * 10));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+</style> 

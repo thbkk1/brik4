@@ -2,45 +2,31 @@
 // Sample certification data - you can replace these with your actual certifications
 const certifications = [
   {
-    name: "AWS Solutions Architect",
-    image: "/certifications/aws-sa.svg",
+    name: "AWS Solutions Architect Associate",
+    image: "/certifications/aws-sa.png",
     alt: "AWS Solutions Architect Certification"
   },
   {
-    name: "Microsoft Azure",
-    image: "/certifications/azure.svg",
-    alt: "Microsoft Azure Certification"
+    name: "PMP®",
+    image: "/certifications/pmp.png",
+    alt: "Project Management Professional Certification"
   },
   {
-    name: "Google Cloud Platform",
-    image: "/certifications/gcp.svg",
-    alt: "Google Cloud Platform Certification"
+    name: "PMI-ACP®",
+    image: "/certifications/acp.png",
+    alt: "PMI-ACP Agile Certified Practitioner Certification"
   },
   {
-    name: "Kubernetes",
-    image: "/certifications/kubernetes.svg",
-    alt: "Kubernetes Certification"
+    name: "Google Project Management",
+    image: "/certifications/google-pmp.png",
+    alt: "Google Project Managament Professional Certification"
   },
   {
-    name: "Docker",
-    image: "/certifications/docker.svg",
-    alt: "Docker Certification"
+    name: "Mercedes Benz Integra",
+    image: "/certifications/integra.png",
+    alt: "Meredes Benz Integra Certification"
   },
-  {
-    name: "Terraform",
-    image: "/certifications/terraform.svg",
-    alt: "Terraform Certification"
-  },
-  {
-    name: "Ansible",
-    image: "/certifications/ansible.svg",
-    alt: "Ansible Certification"
-  },
-  {
-    name: "Jenkins",
-    image: "/certifications/jenkins.svg",
-    alt: "Jenkins Certification"
-  }
+ 
 ];
 
 // Duplicate the array to create seamless infinite scroll effect
@@ -49,7 +35,7 @@ const duplicatedCertifications = [...certifications, ...certifications];
 
 <div class="certification-carousel-container">
   <div class="certification-content">
-    <h2>Our Certifications</h2>
+    <h2>Trusted by Industry Leaders</h2>
     <div class="certification-carousel">
       <div class="certification-track">
         {duplicatedCertifications.map((cert) => (
@@ -100,8 +86,8 @@ const duplicatedCertifications = [...certifications, ...certifications];
 
   .certification-track {
     display: flex;
-    animation: scroll 30s linear infinite;
-    width: calc(200px * 16); /* Adjust based on number of items */
+    animation: scroll 25s linear infinite;
+    width: calc(200px * 8); /* 4 items duplicated = 8 total */
     background: transparent !important;
   }
 
@@ -119,17 +105,15 @@ const duplicatedCertifications = [...certifications, ...certifications];
     box-shadow: none;
     transition: transform 0.3s ease;
     padding: 1rem;
-    border: 2px solid rgba(44, 62, 80, 0.1);
   }
 
   .certification-item:hover {
     transform: translateY(-5px);
-    border-color: rgba(44, 62, 80, 0.3);
   }
 
   .certification-item img {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
     margin-bottom: 0.5rem;
   }
@@ -148,7 +132,7 @@ const duplicatedCertifications = [...certifications, ...certifications];
       transform: translateX(0);
     }
     100% {
-      transform: translateX(calc(-200px * 8)); /* Half of total width */
+      transform: translateX(calc(-200px * 4)); /* Full width of original array (4 items) */
     }
   }
 
@@ -174,7 +158,7 @@ const duplicatedCertifications = [...certifications, ...certifications];
     }
 
     .certification-track {
-      width: calc(150px * 16);
+      width: calc(150px * 8);
     }
 
     @keyframes scroll {
@@ -182,7 +166,7 @@ const duplicatedCertifications = [...certifications, ...certifications];
         transform: translateX(0);
       }
       100% {
-        transform: translateX(calc(-150px * 8));
+        transform: translateX(calc(-150px * 4));
       }
     }
   }
@@ -195,7 +179,7 @@ const duplicatedCertifications = [...certifications, ...certifications];
     }
 
     .certification-track {
-      width: calc(120px * 16);
+      width: calc(120px * 8);
     }
 
     @keyframes scroll {
@@ -203,7 +187,7 @@ const duplicatedCertifications = [...certifications, ...certifications];
         transform: translateX(0);
       }
       100% {
-        transform: translateX(calc(-120px * 8));
+        transform: translateX(calc(-120px * 4));
       }
     }
   }
