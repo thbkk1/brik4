@@ -1,0 +1,210 @@
+---
+// Sample certification data - you can replace these with your actual certifications
+const certifications = [
+  {
+    name: "AWS Solutions Architect",
+    image: "/certifications/aws-sa.svg",
+    alt: "AWS Solutions Architect Certification"
+  },
+  {
+    name: "Microsoft Azure",
+    image: "/certifications/azure.svg",
+    alt: "Microsoft Azure Certification"
+  },
+  {
+    name: "Google Cloud Platform",
+    image: "/certifications/gcp.svg",
+    alt: "Google Cloud Platform Certification"
+  },
+  {
+    name: "Kubernetes",
+    image: "/certifications/kubernetes.svg",
+    alt: "Kubernetes Certification"
+  },
+  {
+    name: "Docker",
+    image: "/certifications/docker.svg",
+    alt: "Docker Certification"
+  },
+  {
+    name: "Terraform",
+    image: "/certifications/terraform.svg",
+    alt: "Terraform Certification"
+  },
+  {
+    name: "Ansible",
+    image: "/certifications/ansible.svg",
+    alt: "Ansible Certification"
+  },
+  {
+    name: "Jenkins",
+    image: "/certifications/jenkins.svg",
+    alt: "Jenkins Certification"
+  }
+];
+
+// Duplicate the array to create seamless infinite scroll effect
+const duplicatedCertifications = [...certifications, ...certifications];
+---
+
+<div class="certification-carousel-container">
+  <div class="certification-content">
+    <h2>Our Certifications</h2>
+    <div class="certification-carousel">
+      <div class="certification-track">
+        {duplicatedCertifications.map((cert) => (
+          <div class="certification-item">
+            <img 
+              src={cert.image} 
+              alt={cert.alt}
+              onerror="this.style.display='none'"
+            />
+            <span class="certification-name">{cert.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .certification-carousel-container {
+    padding: 3rem 0;
+    background: transparent !important;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .certification-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    background: transparent !important;
+  }
+
+  .certification-carousel-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 600;
+    background: transparent !important;
+  }
+
+  .certification-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: transparent !important;
+  }
+
+  .certification-track {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    width: calc(200px * 16); /* Adjust based on number of items */
+    background: transparent !important;
+  }
+
+  .certification-item {
+    flex-shrink: 0;
+    width: 200px;
+    height: 150px;
+    margin: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important;
+    border-radius: 12px;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+    padding: 1rem;
+    border: 2px solid rgba(44, 62, 80, 0.1);
+  }
+
+  .certification-item:hover {
+    transform: translateY(-5px);
+    border-color: rgba(44, 62, 80, 0.3);
+  }
+
+  .certification-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+  }
+
+  .certification-name {
+    font-size: 0.8rem;
+    text-align: center;
+    color: #34495e;
+    font-weight: 500;
+    line-height: 1.2;
+    background: transparent !important;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-200px * 8)); /* Half of total width */
+    }
+  }
+
+  /* Pause animation on hover */
+  .certification-carousel:hover .certification-track {
+    animation-play-state: paused;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .certification-content {
+      padding: 0 1rem;
+    }
+
+    .certification-carousel-container h2 {
+      font-size: 2rem;
+    }
+
+    .certification-item {
+      width: 150px;
+      height: 120px;
+      margin: 0 0.5rem;
+    }
+
+    .certification-track {
+      width: calc(150px * 16);
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-150px * 8));
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .certification-item {
+      width: 120px;
+      height: 100px;
+      margin: 0 0.25rem;
+    }
+
+    .certification-track {
+      width: calc(120px * 16);
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-120px * 8));
+      }
+    }
+  }
+</style> 

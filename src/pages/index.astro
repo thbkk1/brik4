@@ -2,6 +2,7 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import CertificationCarousel from '../components/CertificationCarousel.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -13,13 +14,78 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>Welcome to DVW Systems</h1>
-			<p>
-				Our passion is to create workflows that automate processes and improve efficiency.
-				We provide project management services to help our customers during the digital transition process.
-			</p>
+			<div class="hero-section">
+				<div class="hero-content">
+					<h1>Welcome to DVW Systems</h1>
+					<p>
+						Our passion is to create workflows that automate processes and improve efficiency.
+						We provide project management services to help our customers during the digital transition process.
+					</p>
+				</div>
+			</div>
 			
+			<CertificationCarousel />
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	body {
+		background: transparent !important;
+	}
+
+	main {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		max-width: 100%;
+		background: transparent !important;
+	}
+
+	.hero-section {
+		padding: 4rem 2rem;
+		text-align: center;
+		background: transparent !important;
+		color: inherit;
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.hero-content {
+		max-width: 800px;
+		margin: 0 auto;
+		background: transparent !important;
+	}
+
+	.hero-section h1 {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+		color: #2c3e50;
+		background: transparent !important;
+	}
+
+	.hero-section p {
+		font-size: 1.2rem;
+		line-height: 1.6;
+		color: #34495e;
+		margin: 0;
+		background: transparent !important;
+	}
+
+	@media (max-width: 768px) {
+		.hero-section {
+			padding: 2rem 1rem;
+		}
+
+		.hero-section h1 {
+			font-size: 2rem;
+		}
+
+		.hero-section p {
+			font-size: 1rem;
+		}
+	}
+</style>
