@@ -38,15 +38,30 @@ import { SITE_TITLE } from '../consts';
 	</nav>
 </header>
 <script is:inline>
-let navOpen = false;
-function toggleNav() {
-	navOpen = !navOpen;
-	document.querySelector('.internal-links').classList.toggle('open', navOpen);
-	document.querySelector('.hamburger').classList.toggle('open', navOpen);
-}
-if (typeof window !== 'undefined') {
-	window.toggleNav = toggleNav;
-}
+document.addEventListener('DOMContentLoaded', function () {
+	const hamburger = document.querySelector('.hamburger');
+	const menu = document.querySelector('.internal-links');
+	if (!hamburger || !menu) return;
+	hamburger.addEventListener('click', function () {
+		const isOpen = menu.classList.toggle('open');
+		hamburger.classList.toggle('open', isOpen);
+		if (isOpen) {
+			menu.style.zIndex = '2000';
+		} else {
+			menu.style.zIndex = '';
+		}
+	});
+	// Close menu when a link is clicked (mobile only)
+	menu.querySelectorAll('a').forEach(link => {
+		link.addEventListener('click', () => {
+			if (window.innerWidth <= 720) {
+				menu.classList.remove('open');
+				hamburger.classList.remove('open');
+				menu.style.zIndex = '';
+			}
+		});
+	});
+});
 </script>
 <style>
 	header {
@@ -125,42 +140,49 @@ if (typeof window !== 'undefined') {
 	@media (max-width: 720px) {
 		.hamburger {
 			display: flex;
-			position: absolute;
+			position: fixed;
 			right: 1em;
 			top: 10px;
-			z-index: 1100;
+			z-index: 2100;
+			background: white;
+			border-radius: 8px;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 		}
 		.internal-links {
-			position: absolute;
-			top: 60px;
+			position: fixed;
+			top: 0;
 			left: 0;
 			right: 0;
 			width: 100vw;
+			height: 100vh;
 			box-sizing: border-box;
 			background: white;
 			flex-direction: column;
 			align-items: center;
+			justify-content: center;
 			max-height: 0;
 			overflow: hidden;
 			opacity: 0;
 			pointer-events: none;
-			z-index: 1000;
+			z-index: 2000;
 			margin: 0;
 			padding: 0;
+			transition: max-height 0.3s, opacity 0.3s;
 		}
 		.internal-links.open {
-			max-height: 400px;
+			max-height: 100vh;
 			opacity: 1;
 			pointer-events: auto;
 			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 		}
 		.internal-links a {
-			padding: 1em 0;
+			padding: 1.2em 0;
 			width: 100%;
 			text-align: center;
 			border-bottom: 1px solid #eee;
 			box-sizing: border-box;
 			margin: 0;
+			font-size: 1.2em;
 		}
 		.social-links {
 			display: none;
