@@ -37,6 +37,9 @@ import { SITE_TITLE } from '../consts';
 		</div>
 	</nav>
 </header>
+<button id="jumpToTop" aria-label="Jump to top" style="display:none;">
+  ↑ Top
+</button>
 <script is:inline>
 document.addEventListener('DOMContentLoaded', function () {
 	const hamburger = document.querySelector('.hamburger');
@@ -61,6 +64,19 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 		});
 	});
+});
+// Jump to top button logic
+window.addEventListener('scroll', function () {
+	const btn = document.getElementById('jumpToTop');
+	if (!btn) return;
+	if (window.scrollY > 120 && window.innerWidth <= 720) {
+		btn.style.display = 'block';
+	} else {
+		btn.style.display = 'none';
+	}
+});
+document.getElementById('jumpToTop')?.addEventListener('click', function () {
+	window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
 <style>
@@ -195,6 +211,28 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 		.social-links {
 			display: none;
+		}
+		#jumpToTop {
+			position: fixed;
+			right: 1.2em;
+			bottom: 1.2em;
+			z-index: 2200;
+			background: #3498db;
+			color: white;
+			border: none;
+			border-radius: 50%;
+			width: 48px;
+			height: 48px;
+			font-size: 1.5em;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+			display: none;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: background 0.2s;
+		}
+		#jumpToTop:hover {
+			background: #217dbb;
 		}
 	}
 </style>
