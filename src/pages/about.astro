@@ -280,33 +280,29 @@ import { SITE_TITLE } from '../consts';
 	}
 
 	@media (max-width: 768px) {
-		.about-section {
-			padding: 2rem 1rem;
+		.about-section,
+		.about-content {
+			width: 100%;
+			box-sizing: border-box;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
 		}
-
-		.about-section h1 {
-			font-size: 2rem;
-		}
-
-		.about-section h2 {
-			font-size: 1.5rem;
-		}
-
+		.about-section h1,
+		.about-section h2,
+		.about-section h3,
+		.about-section h4,
 		.about-section p {
-			font-size: 1rem;
+			text-align: center;
+			word-break: break-word;
+			overflow-wrap: break-word;
 		}
-
 		.services-grid,
-		.approach-steps,
-		.values-grid {
-			grid-template-columns: 1fr;
-			gap: 1rem;
-		}
-
-		.service-item,
-		.step,
-		.value-item {
-			padding: 1rem;
+		.values-grid,
+		.approach-steps {
+			grid-template-columns: 1fr !important;
+			justify-items: center;
 		}
 	}
 </style> 

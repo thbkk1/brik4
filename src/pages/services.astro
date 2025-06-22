@@ -142,25 +142,26 @@ import { SITE_TITLE } from '../consts';
 	}
 
 	@media (max-width: 768px) {
-		.services-section {
-			padding: 2rem 1rem;
+		.services-section,
+		.services-content {
+			width: 100%;
+			box-sizing: border-box;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			margin-left: 0 !important;
+			margin-right: 0 !important;
 		}
-
-		.services-section h1 {
-			font-size: 2rem;
+		.services-section h1,
+		.services-section > .services-content > p,
+		.service-card p,
+		.service-card h3 {
+			text-align: center;
+			word-break: break-word;
+			overflow-wrap: break-word;
 		}
-
-		.services-section > .services-content > p {
-			font-size: 1rem;
-		}
-
 		.services-grid {
-			grid-template-columns: 1fr;
-			gap: 1.5rem;
-		}
-
-		.service-card {
-			padding: 1.5rem;
+			grid-template-columns: 1fr !important;
+			justify-items: center;
 		}
 	}
 </style> 
