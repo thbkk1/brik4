@@ -1,3 +1,4 @@
+---
 import { getCollection } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
@@ -8,8 +9,10 @@ export async function getStaticPaths() {
 		props: { post },
 	}));
 }
+
 const { post } = Astro.props;
 const { Content } = await post.render();
+---
 
 <BlogPost {...post.data}>
 	<Content />
