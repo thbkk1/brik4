@@ -69,8 +69,8 @@ const duplicatedTechnologies = [...technologies, ...technologies];
   .technology-carousel {
     position: relative;
     width: 100%;
-    overflow: hidden;
     background: transparent !important;
+    overflow: hidden;
   }
 
   .technology-track {
@@ -151,8 +151,15 @@ const duplicatedTechnologies = [...technologies, ...technologies];
       height: 80px;
     }
 
+    .technology-carousel {
+      box-sizing: border-box;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      overflow: auto;
+    }
+
     .technology-track {
-      width: calc(150px * 20);
+      width: max-content;
     }
 
     @keyframes scroll-tech {
@@ -178,7 +185,7 @@ const duplicatedTechnologies = [...technologies, ...technologies];
     }
 
     .technology-track {
-      width: calc(120px * 20);
+      width: max-content;
     }
 
     @keyframes scroll-tech {

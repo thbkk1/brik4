@@ -80,8 +80,8 @@ const duplicatedCertifications = [...certifications, ...certifications];
   .certification-carousel {
     position: relative;
     width: 100%;
-    overflow: hidden;
     background: transparent !important;
+    overflow: hidden;
   }
 
   .certification-track {
@@ -157,8 +157,15 @@ const duplicatedCertifications = [...certifications, ...certifications];
       margin: 0 0.5rem;
     }
 
+    .certification-carousel {
+      box-sizing: border-box;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      overflow: auto;
+    }
+
     .certification-track {
-      width: calc(150px * 8);
+      width: max-content;
     }
 
     @keyframes scroll {
@@ -179,7 +186,7 @@ const duplicatedCertifications = [...certifications, ...certifications];
     }
 
     .certification-track {
-      width: calc(120px * 8);
+      width: max-content;
     }
 
     @keyframes scroll {
