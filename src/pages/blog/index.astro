@@ -5,12 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 
-export async function getStaticProps() {
-	const posts = await getCollection('blog');
-	return { props: { posts } };
-}
-
-const { posts } = Astro.props;
+const posts = await getCollection('blog');
 ---
 
 <!doctype html>
