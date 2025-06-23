@@ -65,9 +65,12 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 		margin-right: auto;
 		position: relative;
 		overflow: hidden;
-		background: linear-gradient(120deg, #e0eafc 0%, #a1c4fd 60%, #c2e9fb 100%, #7f7fd5 100%);
+		background: rgba(255, 255, 255, 0.25); /* Aero glass: semi-transparent white */
+		backdrop-filter: blur(18px) saturate(160%);
+		-webkit-backdrop-filter: blur(18px) saturate(160%);
 		border-radius: 2rem;
-		box-shadow: 0 8px 32px 0 rgba(34,41,57,0.08);
+		box-shadow: 0 8px 32px 0 rgba(34,41,57,0.12);
+		border: 1.5px solid rgba(255, 255, 255, 0.35); /* subtle border for glass effect */
 	}
 
 	.hero-content {
@@ -94,20 +97,24 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 	.cta-btn {
 		display: inline-block;
-		background: var(--accent);
-		color: #fff;
+		background: rgba(255, 255, 255, 0.35); /* Aero glass: semi-transparent white */
+		color: #22293a; /* Modern dark grey for contrast */
 		padding: 1em 2.5em;
 		border-radius: 10px;
 		font-size: 1.2em;
 		font-weight: 700;
 		text-decoration: none;
 		box-shadow: 0 4px 24px 0 rgba(34,41,57,0.10);
-		transition: background 0.2s, box-shadow 0.2s;
+		border: 1.5px solid rgba(255,255,255,0.45);
+		backdrop-filter: blur(8px) saturate(160%);
+		-webkit-backdrop-filter: blur(8px) saturate(160%);
+		transition: background 0.2s, box-shadow 0.2s, color 0.2s;
 		margin-bottom: 2.5rem;
 	}
 
 	.cta-btn:hover {
-		background: var(--accent-dark);
+		background: rgba(255,255,255,0.60);
+		color: #11151c;
 		box-shadow: 0 8px 32px 0 rgba(34,41,57,0.13);
 	}
 

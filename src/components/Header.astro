@@ -5,7 +5,9 @@ import { SITE_TITLE } from '../consts';
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<a href="/" class="logo-link" aria-label="Home">
+			<img src="/logo.svg" alt="Brik4mation logo" class="site-logo" height="48" />
+		</a>
 		<button class="hamburger" aria-label="Toggle navigation" onclick="toggleNav()">
 			<span></span><span></span><span></span>
 		</button>
@@ -263,5 +265,15 @@ document.getElementById('jumpToTop')?.addEventListener('click', function () {
 		.internal-links.open a.active {
 			border-bottom: none !important;
 		}
+	}
+	.site-logo {
+		height: 48px;
+		width: auto;
+		display: block;
+	}
+	.logo-link {
+		display: flex;
+		align-items: center;
+		margin-right: 1.5em;
 	}
 </style>
